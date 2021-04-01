@@ -1,0 +1,7 @@
+server:
+  port: 9090
+
+zmq:
+  server:
+    url: 'tcp://server-receive:10000'
+    topicToSendBack: 'stock'

@@ -1,0 +1,41 @@
+version: '3.7'
+services:
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+  server-send:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        repSocketUrl: 'tcp://*:10000'
+        pubSocketUrl: 'tcp://*:20000'
+
+  server-receive:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+      args:
+        repSocketUrl: 'tcp://*:10000'
+        pubSocketUrl: 'tcp://*:20000'
+
+  api:
+    build:
+      context: ./demoarchitecture
+      dockerfile: Dockerfile
+
+  stock-service:
+    build:
+      context: ./b3service
+      dockerfile: Dockerfile
+
+  real-estate-service:
+    build:
+      context: ./realestate
+      dockerfile: Dockerfile
+

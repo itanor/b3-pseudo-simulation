@@ -1,0 +1,3 @@
+zmq:
+  server:
+    url: 'tcp://server-send:10000'

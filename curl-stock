@@ -1,0 +1,7 @@
+#!/bin/bash
+
+curl \
+  -d @stock.json \
+	-H 'Content-Type: application/json' \
+	http://localhost:8000/client-pub-server
+
