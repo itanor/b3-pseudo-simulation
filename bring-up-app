@@ -6,9 +6,4 @@ for service in ${services[@]}; do
   cd $service && mvn clean install && cd ..
 done
 
-#cd demoarchitecture && mvn clean install && cd ..
-#cd b3service        && mvn clean install && cd ..
-#cd realestate       && mvn clean install && cd ..
-
 docker-compose up --build
-
